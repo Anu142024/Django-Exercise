@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construction Project</title>
+    <title>{% block title %}Construction Project{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'construction/css/styles.css' %}">
 </head>
 <body>
@@ -15,9 +15,9 @@
 
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">about</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'projects' %}">Projects</a></li>
+            <li><a href="{% url 'about' %}">about</a></li>
         </ul>
     </nav>
 
@@ -32,10 +32,8 @@
         </aside>
 
         <main>
-            <article>
-                <h2>Main Section</h2>
-                <p>Primary content goes here. Use semantic elements like <code>article</code>, <code>section</code> or <code>aside</code> as needed.</p>
-            </article>
+            {% block content %}
+            {% endblock %}
         </main>
     </div>
 
@@ -43,3 +41,4 @@
         <p>&copy; 2025 Construction Project</p>
     </footer>
 </body>
+</html>
